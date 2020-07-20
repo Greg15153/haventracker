@@ -4,14 +4,14 @@ import { Auth0Provider } from '@auth0/auth0-react'
 import Router from 'next/router'
 import { AppState } from '@auth0/auth0-react/dist/auth0-provider'
 import { Nav } from '../components/Nav'
-import configuration, { validateConfiguration } from '../utils/configuration/configuration'
+import configuration, { validateAppConfiguration } from '../utils/configuration/configuration'
 
 const onRedirectCallback = (appState: AppState) => {
     Router.replace(appState?.returnTo || '/')
 }
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
-    validateConfiguration()
+    validateAppConfiguration()
 
     return (
         <Auth0Provider
