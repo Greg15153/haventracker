@@ -11,8 +11,12 @@ export function Nav(): JSX.Element {
 
     return (
         <nav>
-            <Link href="/">Home</Link>
-            <Link href="/campaign">Campaign</Link>
+            <Link href="/">
+                <a>{'Home'}</a>
+            </Link>
+            <Link href="/campaign">
+                <a>{'Campaign'}</a>
+            </Link>
 
             {isAuthenticated ? (
                 <>
