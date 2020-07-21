@@ -5,8 +5,10 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     DeleteDateColumn,
-    VersionColumn
+    VersionColumn,
+    OneToMany
 } from 'typeorm'
+import { AuthSub } from './authsub.entity'
 
 @Entity()
 export class User {
@@ -15,6 +17,12 @@ export class User {
 
     @Column('varchar', { length: 50 })
     displayName: string
+
+    @OneToMany(
+        () => AuthSub,
+        authSub => authSub.user
+    )
+    AuthSubs: AuthSub[]
 
     @CreateDateColumn()
     createDate: Date

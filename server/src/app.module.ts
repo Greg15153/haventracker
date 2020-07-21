@@ -4,7 +4,8 @@ import { AppService } from './app.service'
 import { UsersModule } from './users/users.module'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { User } from './users/user.entity'
+import { User } from './users/entities/user.entity'
+import { AuthSub } from './users/entities/authsub.entity'
 
 @Module({
     imports: [
@@ -26,7 +27,7 @@ import { User } from './users/user.entity'
                     password: configService.get('DATABASE_PASSWORD'),
                     database: configService.get('DATABASE_NAME'),
                     // TODO: figure out why autoLoad isn't working
-                    entities: [User],
+                    entities: [User, AuthSub],
                     synchronize: true
                 }
             }
