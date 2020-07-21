@@ -12,9 +12,7 @@
         "@auth0/auth0-react": "^1.0.0",
         "next": "9.4.4",
         "react": "16.13.1",
-        "react-dom": "16.13.1",
-        "sequelize": "^6.3.3",
-        "tedious": "^8.3.0"
+        "react-dom": "16.13.1"
     },
     "devDependencies": {
         "@types/jest": "^26.0.5",
