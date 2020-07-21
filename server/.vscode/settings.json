@@ -18,5 +18,8 @@
         "**/.DS_Store": true,
         "**/node_modules": true,
         "**/.next": true
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
