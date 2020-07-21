@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { User } from './users/entities/user.entity'
 import { AuthSub } from './users/entities/authsub.entity'
+import { AuthzModule } from './authz/authz.module'
 
 @Module({
     imports: [
@@ -18,7 +19,6 @@ import { AuthSub } from './users/entities/authsub.entity'
             imports: [ConfigModule],
             inject: [ConfigService],
             useFactory: async (configService: ConfigService) => {
-                console.log(configService.get('DATABASE_HOST'))
                 return {
                     type: 'mssql',
                     host: configService.get('DATABASE_HOST'),
@@ -32,6 +32,7 @@ import { AuthSub } from './users/entities/authsub.entity'
                 }
             }
         }),
+        AuthzModule,
         UsersModule
     ],
     controllers: [AppController],
