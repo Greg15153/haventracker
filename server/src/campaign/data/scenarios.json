@@ -1,0 +1,73 @@
+[
+    {
+        "id": 1,
+        "name": "Black Barrow",
+        "rewards": [
+            {
+                "type": "scenario",
+                "id": 2
+            },
+            {
+                "type": "partyAchievement",
+                "id": 1
+            },
+            {
+                "type": "globalAchievement",
+                "id": 1
+            }
+        ],
+        "requirements": []
+    },
+    {
+        "id": 2,
+        "name": "Barrow Lair",
+        "rewards": [
+            {
+                "type": "prosperity",
+                "amount": 1
+            },
+            {
+                "type": "gold",
+                "amount": 10
+            }
+        ],
+        "requirements": [
+            {
+                "type": "partyAchievement",
+                "id": 1
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Inox Encampment",
+        "rewards": [
+            {
+                "type": "gold",
+                "amount": 15
+            },
+            {
+                "type": "prosperity",
+                "amount": 1
+            },
+            {
+                "type": "partyAchievement",
+                "id": 2
+            },
+            {
+                "type": "scenario",
+                "id": 9
+            },
+            {
+                "type": "scenario",
+                "id": 8
+            }
+        ],
+        "requirements": [
+            {
+                "type": "incompleteGlobalAchievement",
+                "id": 2
+            }
+        ]
+    }
+]
