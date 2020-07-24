@@ -1,0 +1,50 @@
+{
+    "folders": [
+        {
+            "path": "server",
+            "name": "Server"
+        },
+        {
+            "path": "client",
+            "name": "Client"
+        },
+        {
+            "path": ".",
+            "name": "Repository"
+        }
+    ],
+    "extensions": {
+        "recommendations": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+    },
+    "settings": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "search.exclude": {
+            "**/node_modules": true,
+            "**/bower_components": true,
+            "**/*.code-search": true,
+            "**/.next": true
+        },
+        "files.exclude": {
+            "**/.git": true,
+            "**/.svn": true,
+            "**/.hg": true,
+            "**/CVS": true,
+            "**/.DS_Store": true,
+            "**/node_modules": true,
+            "**/.next": true
+        }
+    },
+    "launch": {
+        "configurations": [],
+        "compounds": [
+            {
+                "name": "Server/Client",
+                "configurations": ["Client: Dev", "Server: Dev"]
+            }
+        ]
+    }
+}
