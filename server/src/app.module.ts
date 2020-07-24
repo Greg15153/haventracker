@@ -13,7 +13,7 @@ import { AuthzModule } from './authz/authz.module'
         ConfigModule.forRoot({
             // TODO: Get .env working in both apps at this repository root OR application folder root
             // Base off env variable and define in VS Code launch ?
-            envFilePath: ['.env', '.env.local']
+            envFilePath: ['.env.local']
         }),
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],
