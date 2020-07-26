@@ -1,10 +1,11 @@
-import React from 'react'
-import { AppProps } from 'next/app'
-import { Auth0Provider } from '@auth0/auth0-react'
-import Router from 'next/router'
-import { AppState } from '@auth0/auth0-react/dist/auth0-provider'
-import { Nav } from '../components/Nav'
 import configuration, { validateConfiguration } from '../utils/configuration/configuration'
+
+import { AppProps } from 'next/app'
+import { AppState } from '@auth0/auth0-react/dist/auth0-provider'
+import { Auth0Provider } from '@auth0/auth0-react'
+import { Nav } from '../components/Nav'
+import React from 'react'
+import Router from 'next/router'
 
 const onRedirectCallback = (appState: AppState) => {
     Router.replace(appState?.returnTo || '/')

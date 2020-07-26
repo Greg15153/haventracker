@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import Link from 'next/link'
 
 export function Nav(): JSX.Element {
     const { isAuthenticated, isLoading, user, loginWithRedirect, logout } = useAuth0()

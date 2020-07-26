@@ -1,5 +1,5 @@
-import React from 'react'
 import ErrorDebug from './ErrorDebug'
+import React from 'react'
 import { isProduction } from '../../utils/configuration/configuration'
 
 type Props = {

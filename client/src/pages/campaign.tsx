@@ -1,5 +1,5 @@
-import React from 'react'
 import Head from 'next/head'
+import React from 'react'
 import { withAuthenticationRequired } from '@auth0/auth0-react'
 
 function Campaign() {

@@ -13,7 +13,7 @@
         }
     ],
     "extensions": {
-        "recommendations": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+        "recommendations": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "amatiasq.sort-imports"]
     },
     "settings": {
         "editor.codeActionsOnSave": {

@@ -1,5 +1,6 @@
-import Auth0Configuration from './auth0Configuration'
 import EnvironmentConfiguration, { NodeEnvironment } from './environment'
+
+import Auth0Configuration from './auth0Configuration'
 
 export interface Configuration {
     auth0: Auth0Configuration
