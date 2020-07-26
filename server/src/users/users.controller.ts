@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common'
-import CreateUserPostModel from './postmodels/create.postmodel'
-import { UsersService } from './users.service'
-import { User } from './entities/user.entity'
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common'
+import CreateUserDto from './postmodels/createuser.dto'
 import { JwtAuthGuard } from 'src/authz/jwt-auth.guard'
+import { User } from './entities/user.entity'
+import { UsersService } from './users.service'
 
 @UseGuards(JwtAuthGuard)
 @Controller('users')
@@ -15,7 +15,7 @@ export class UsersController {
     }
 
     @Post()
-    async create(@Body() createUserPostModel: CreateUserPostModel): Promise<User> {
+    async create(@Body() createUserPostModel: CreateUserDto): Promise<User> {
         return await this.usersService.create(createUserPostModel)
     }
 }
