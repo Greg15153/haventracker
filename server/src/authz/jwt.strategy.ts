@@ -22,19 +22,17 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         @Inject(authzConfig.KEY)
         config: ConfigType<typeof authzConfig>
     ) {
-        const domain = !config.domain.endsWith('/') ? config.domain + '/' : config.domain
-
         super({
             secretOrKeyProvider: passportJwtSecret({
                 cache: true,
                 rateLimit: true,
                 jwksRequestsPerMinute: 5,
-                jwksUri: `${domain}.well-known/jwks.json`
+                jwksUri: `${config.domain}/.well-known/jwks.json`
             }),
 
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             audience: config.audience,
-            issuer: domain,
+            issuer: `${config.domain}/`,
             algorithms: ['RS256']
         })
     }

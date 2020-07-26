@@ -7,13 +7,39 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { User } from './users/entities/user.entity'
 import { AuthSub } from './users/entities/authsub.entity'
 import { AuthzModule } from './authz/authz.module'
+import * as Joi from 'joi' // https://github.com/DefinitelyTyped/DefinitelyTyped/pull/46241 -- Joi moving libraries awaiting Typescript changes
 
 @Module({
     imports: [
         ConfigModule.forRoot({
             // TODO: Get .env working in both apps at this repository root OR application folder root
             // Base off env variable and define in VS Code launch ?
-            envFilePath: ['.env', '.env.local']
+            envFilePath: ['.env.local'],
+            validationSchema: Joi.object({
+                AUTH0_DOMAIN: Joi.string()
+                    .uri()
+                    .trim()
+                    .replace(/\/$/, '')
+                    .required(),
+                AUTH0_AUDIENCE: Joi.string()
+                    .uri()
+                    .trim()
+                    .replace(/\/$/, '')
+                    .required(),
+                DATABASE_NAME: Joi.string()
+                    .trim()
+                    .required(),
+                DATABASE_HOST: Joi.string()
+                    .trim()
+                    .uri()
+                    .allow('localhost')
+                    .required(),
+                DATABASE_PORT: Joi.number()
+                    .port()
+                    .default(1433),
+                DATABASE_USERNAME: Joi.string().required(),
+                DATABASE_PASSWORD: Joi.string().required()
+            })
         }),
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],
@@ -28,7 +54,10 @@ import { AuthzModule } from './authz/authz.module'
                     database: configService.get('DATABASE_NAME'),
                     // TODO: figure out why autoLoad isn't working
                     entities: [User, AuthSub],
-                    synchronize: true
+                    synchronize: true,
+                    options: {
+                        enableArithAbort: true
+                    }
                 }
             }
         }),
