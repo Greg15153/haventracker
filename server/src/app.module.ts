@@ -7,7 +7,9 @@ import { AppService } from './app.service'
 import { AuthSub } from './users/entities/authsub.entity'
 import { AuthzModule } from './authz/authz.module'
 import { EventsModule } from './events/events.module'
+import { HealthController } from './health/health.controller'
 import { Module } from '@nestjs/common'
+import { TerminusModule } from '@nestjs/terminus'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { User } from './users/entities/user.entity'
 import { UsersModule } from './users/users.module'
@@ -64,11 +66,12 @@ import { UsersModule } from './users/users.module'
                 }
             }
         }),
+        TerminusModule,
         AuthzModule,
         EventsModule,
         UsersModule
     ],
-    controllers: [AppController],
+    controllers: [AppController, HealthController],
     providers: [AppService]
 })
 export class AppModule {}
