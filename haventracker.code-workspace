@@ -9,8 +9,7 @@
             "name": "Client"
         },
         {
-            "path": ".",
-            "name": "Repository"
+            "path": "."
         }
     ],
     "extensions": {
