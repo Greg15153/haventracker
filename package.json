@@ -1,0 +1,14 @@
+{
+  "name": "haventracker",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"yarn workspace server run start:dev\" \"yarn workspace client run dev\""
+  },
+  "workspaces": [
+    "server/",
+    "client/"
+  ],
+  "devDependencies": {
+    "concurrently": "5.2.0"
+  }
+}
