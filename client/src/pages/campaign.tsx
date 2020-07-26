@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
-
-import Head from 'next/head'
-import { useSocket } from 'use-socketio'
 import { withAuthenticationRequired } from '@auth0/auth0-react'
+import Head from 'next/head'
+import React, { useState } from 'react'
+import { useSocket } from 'use-socketio'
 
 interface Event {
     name: string

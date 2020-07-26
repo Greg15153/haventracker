@@ -1,7 +1,7 @@
-import NextError, { ErrorProps as NextErrorProps } from 'next/error'
-
 import { NextPageContext } from 'next'
+import NextError, { ErrorProps as NextErrorProps } from 'next/error'
 import React from 'react'
+
 import { isProduction } from '../utils/configuration/configuration'
 
 export type ErrorPageProps = {

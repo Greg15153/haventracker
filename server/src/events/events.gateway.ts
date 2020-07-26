@@ -1,6 +1,6 @@
-import { Client, Server } from 'socket.io'
-import { Observable, of } from 'rxjs'
 import { SubscribeMessage, WebSocketGateway, WebSocketServer, WsResponse } from '@nestjs/websockets'
+import { Observable, of } from 'rxjs'
+import { Client, Server } from 'socket.io'
 
 interface Event {
     name: string

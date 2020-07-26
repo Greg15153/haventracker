@@ -1,8 +1,9 @@
-import { ExtractJwt, Strategy } from 'passport-jwt'
-import { Injectable, Inject } from '@nestjs/common'
+import { Inject, Injectable } from '@nestjs/common'
+import { ConfigType } from '@nestjs/config'
 import { PassportStrategy } from '@nestjs/passport'
 import { passportJwtSecret } from 'jwks-rsa'
-import { ConfigType } from '@nestjs/config'
+import { ExtractJwt, Strategy } from 'passport-jwt'
+
 import authzConfig from './authz.config'
 
 interface Payload {

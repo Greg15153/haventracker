@@ -1,9 +1,8 @@
+import { NestFactory } from '@nestjs/core'
+import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify'
 import * as helmet from 'fastify-helmet'
 
-import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify'
-
 import { AppModule } from './app.module'
-import { NestFactory } from '@nestjs/core'
 
 //import { RedisIoAdapter } from './events/adapters/redis-io.adapter'
 

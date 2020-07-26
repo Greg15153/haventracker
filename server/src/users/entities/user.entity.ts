@@ -1,13 +1,14 @@
 import {
-    Entity,
-    PrimaryGeneratedColumn,
     Column,
     CreateDateColumn,
-    UpdateDateColumn,
     DeleteDateColumn,
-    VersionColumn,
-    OneToMany
+    Entity,
+    OneToMany,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn,
+    VersionColumn
 } from 'typeorm'
+
 import { AuthSub } from './authsub.entity'
 
 @Entity()

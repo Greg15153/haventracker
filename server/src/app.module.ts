@@ -1,16 +1,15 @@
-import * as Joi from 'joi' // https://github.com/DefinitelyTyped/DefinitelyTyped/pull/46241 -- Joi moving libraries awaiting Typescript changes
-
+import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
+import { TerminusModule } from '@nestjs/terminus'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import * as Joi from 'joi' // https://github.com/DefinitelyTyped/DefinitelyTyped/pull/46241 -- Joi moving libraries awaiting Typescript changes
 
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { AuthSub } from './users/entities/authsub.entity'
 import { AuthzModule } from './authz/authz.module'
 import { EventsModule } from './events/events.module'
 import { HealthController } from './health/health.controller'
-import { Module } from '@nestjs/common'
-import { TerminusModule } from '@nestjs/terminus'
-import { TypeOrmModule } from '@nestjs/typeorm'
+import { AuthSub } from './users/entities/authsub.entity'
 import { User } from './users/entities/user.entity'
 import { UsersModule } from './users/users.module'
 

@@ -1,12 +1,12 @@
-import configuration, { validateConfiguration } from '../utils/configuration/configuration'
-
-import { AppProps } from 'next/app'
-import { AppState } from '@auth0/auth0-react/dist/auth0-provider'
 import { Auth0Provider } from '@auth0/auth0-react'
-import { Nav } from '../components/Nav'
-import React from 'react'
+import { AppState } from '@auth0/auth0-react/dist/auth0-provider'
+import { AppProps } from 'next/app'
 import Router from 'next/router'
+import React from 'react'
 import { SocketIOProvider } from 'use-socketio'
+
+import { Nav } from '../components/Nav'
+import configuration, { validateConfiguration } from '../utils/configuration/configuration'
 
 const onRedirectCallback = (appState: AppState) => {
     Router.replace(appState?.returnTo || '/')

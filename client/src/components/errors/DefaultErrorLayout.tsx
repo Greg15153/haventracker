@@ -1,6 +1,7 @@
-import ErrorDebug from './ErrorDebug'
 import React from 'react'
+
 import { isProduction } from '../../utils/configuration/configuration'
+import ErrorDebug from './ErrorDebug'
 
 type Props = {
     error: Error

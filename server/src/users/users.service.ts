@@ -1,7 +1,8 @@
-import CreateUserDto from './dtos/createuser.dto'
-import { InjectRepository } from '@nestjs/typeorm'
 import { Injectable } from '@nestjs/common'
+import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
+
+import CreateUserDto from './dtos/createuser.dto'
 import { User } from './entities/user.entity'
 
 @Injectable()
