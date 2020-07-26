@@ -1,18 +1,35 @@
+import React, { useState } from 'react'
+
 import Head from 'next/head'
-import React from 'react'
+import { useSocket } from 'use-socketio'
 import { withAuthenticationRequired } from '@auth0/auth0-react'
 
+interface Event {
+    name: string
+    message: string
+}
+
 function Campaign() {
+    const [events, setEvents] = useState([] as Event[])
+    const { socket } = useSocket('events', (event: Event) => setEvents([...events, event]))
+
+    const addEvent = () => {
+        socket.emit('events', {
+            name: 'Button Clicked',
+            message: 'You clicked the button on ' + Date.now()
+        })
+    }
+
     return (
         <div className="container">
             <Head>
                 <title>Create Next App</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
-            <main>
-                <div>{'Hello'}</div>
-            </main>
+            <button onClick={addEvent}>{'Click to add event'}</button>
+            {events.map((e, i) => {
+                return <div key={i}>{`${e.name}: ${e.message}`}</div>
+            })}
         </div>
     )
 }

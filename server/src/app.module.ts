@@ -6,6 +6,7 @@ import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { AuthSub } from './users/entities/authsub.entity'
 import { AuthzModule } from './authz/authz.module'
+import { EventsModule } from './events/events.module'
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { User } from './users/entities/user.entity'
@@ -64,6 +65,7 @@ import { UsersModule } from './users/users.module'
             }
         }),
         AuthzModule,
+        EventsModule,
         UsersModule
     ],
     controllers: [AppController],

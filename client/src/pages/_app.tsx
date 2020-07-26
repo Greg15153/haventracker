@@ -6,6 +6,7 @@ import { Auth0Provider } from '@auth0/auth0-react'
 import { Nav } from '../components/Nav'
 import React from 'react'
 import Router from 'next/router'
+import { SocketIOProvider } from 'use-socketio'
 
 const onRedirectCallback = (appState: AppState) => {
     Router.replace(appState?.returnTo || '/')
@@ -22,8 +23,10 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
             redirectUri={typeof window !== 'undefined' ? window.location.origin : ''}
             onRedirectCallback={onRedirectCallback}
         >
-            <Nav />
-            <Component {...pageProps} />
+            <SocketIOProvider url="http://localhost:5000">
+                <Nav />
+                <Component {...pageProps} />
+            </SocketIOProvider>
         </Auth0Provider>
     )
 }
