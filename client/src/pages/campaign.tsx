@@ -19,12 +19,15 @@ function Campaign() {
         })
     }
 
+    const createNewCampaign = () => {}
+
     return (
         <div className="container">
             <Head>
-                <title>Create Next App</title>
+                <title>{'Campaigns'}</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <button onClick={createNewCampaign}>{'Create a new campaign'}</button>
             <button onClick={addEvent}>{'Click to add event'}</button>
             {events.map((e, i) => {
                 return <div key={i}>{`${e.name}: ${e.message}`}</div>

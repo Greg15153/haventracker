@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { TerminusModule } from '@nestjs/terminus'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import * as Joi from 'joi' // https://github.com/DefinitelyTyped/DefinitelyTyped/pull/46241 -- Joi moving libraries awaiting Typescript changes
+import { ConnectionOptions } from 'typeorm'
 
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
@@ -20,27 +21,11 @@ import { UsersModule } from './users/users.module'
             // Base off env variable and define in VS Code launch ?
             envFilePath: ['.env.local'],
             validationSchema: Joi.object({
-                AUTH0_DOMAIN: Joi.string()
-                    .uri()
-                    .trim()
-                    .replace(/\/$/, '')
-                    .required(),
-                AUTH0_AUDIENCE: Joi.string()
-                    .uri()
-                    .trim()
-                    .replace(/\/$/, '')
-                    .required(),
-                DATABASE_NAME: Joi.string()
-                    .trim()
-                    .required(),
-                DATABASE_HOST: Joi.string()
-                    .trim()
-                    .uri()
-                    .allow('localhost')
-                    .required(),
-                DATABASE_PORT: Joi.number()
-                    .port()
-                    .default(1433),
+                AUTH0_DOMAIN: Joi.string().uri().trim().replace(/\/$/, '').required(),
+                AUTH0_AUDIENCE: Joi.string().uri().trim().replace(/\/$/, '').required(),
+                DATABASE_NAME: Joi.string().trim().required(),
+                DATABASE_HOST: Joi.string().trim().uri().allow('localhost').required(),
+                DATABASE_PORT: Joi.number().port().default(1433),
                 DATABASE_USERNAME: Joi.string().required(),
                 DATABASE_PASSWORD: Joi.string().required()
             })
@@ -48,7 +33,7 @@ import { UsersModule } from './users/users.module'
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],
             inject: [ConfigService],
-            useFactory: async (configService: ConfigService) => {
+            useFactory: async (configService: ConfigService): Promise<ConnectionOptions> => {
                 return {
                     type: 'mssql',
                     host: configService.get('DATABASE_HOST'),
