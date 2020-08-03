@@ -1,6 +1,7 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import Link from 'next/link'
 import React, { useEffect } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
+import { Box } from '@chakra-ui/core'
+import Link from 'next/link'
 
 export function Nav(): JSX.Element {
     const { isAuthenticated, isLoading, user, loginWithRedirect, logout, getAccessTokenSilently } = useAuth0()
@@ -19,28 +20,30 @@ export function Nav(): JSX.Element {
     }
 
     return (
-        <nav>
-            <Link href="/">
-                <a>{'Home'}</a>
-            </Link>
-            <Link href="/campaign">
-                <a>{'Campaign'}</a>
-            </Link>
-            <Link href="/party">
-                <a>{'Party'}</a>
-            </Link>
-            {isAuthenticated ? (
-                <>
-                    <span>{`Hello, ${user.name}`}</span>
-                    <button id="logout" onClick={() => logout()}>
-                        Logout
+        <Box bg="blue.500">
+            <nav>
+                <Link href="/">
+                    <a>{'Home'}</a>
+                </Link>
+                <Link href="/campaign">
+                    <a>{'Campaign'}</a>
+                </Link>
+                <Link href="/party">
+                    <a>{'Party'}</a>
+                </Link>
+                {isAuthenticated ? (
+                    <>
+                        <span>{`Hello, ${user.name}`}</span>
+                        <button id="logout" onClick={() => logout()}>
+                            Logout
+                        </button>
+                    </>
+                ) : (
+                    <button id="login" onClick={loginWithRedirect}>
+                        Login
                     </button>
-                </>
-            ) : (
-                <button id="login" onClick={loginWithRedirect}>
-                    Login
-                </button>
-            )}
-        </nav>
+                )}
+            </nav>
+        </Box>
     )
 }
