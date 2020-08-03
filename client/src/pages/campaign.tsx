@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { withAuthenticationRequired } from '@auth0/auth0-react'
 import Head from 'next/head'
 import { useSocket } from 'use-socketio'
+import { NewCampaign } from '../components/NewCampaign'
 
 interface Event {
     name: string
@@ -9,7 +10,8 @@ interface Event {
 }
 
 function Campaign() {
-    const [events, setEvents] = useState([] as Event[])
+    const [events, setEvents] = useState<Event[]>([])
+    const [startingNew, setStartingNew] = useState<boolean>(false)
     const { socket } = useSocket('events', (event: Event) => setEvents([...events, event]))
 
     const addEvent = () => {
@@ -19,7 +21,9 @@ function Campaign() {
         })
     }
 
-    const createNewCampaign = () => {}
+    const createNewCampaign = () => {
+        setStartingNew(() => true)
+    }
 
     return (
         <div className="container">
@@ -28,6 +32,7 @@ function Campaign() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <button onClick={createNewCampaign}>{'Create a new campaign'}</button>
+            {startingNew ? <NewCampaign /> : null}
             <button onClick={addEvent}>{'Click to add event'}</button>
             {events.map((e, i) => {
                 return <div key={i}>{`${e.name}: ${e.message}`}</div>
