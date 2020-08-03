@@ -10,7 +10,7 @@
                 "health": 10
             },
             {
-                "lavel": 2,
+                "level": 2,
                 "xp": 45,
                 "health": 12
             },
@@ -20,7 +20,7 @@
                 "health": 14
             },
             {
-                "lavel": 4,
+                "level": 4,
                 "xp": 150,
                 "health": 16
             },
@@ -30,7 +30,7 @@
                 "health": 18
             },
             {
-                "lavel": 6,
+                "level": 6,
                 "xp": 275,
                 "health": 20
             },
@@ -45,7 +45,7 @@
                 "health": 24
             },
             {
-                "lavel": 9,
+                "level": 9,
                 "xp": 500,
                 "health": 26
             }
@@ -62,7 +62,7 @@
                 "health": 6
             },
             {
-                "lavel": 2,
+                "level": 2,
                 "xp": 45,
                 "health": 7
             },
@@ -72,7 +72,7 @@
                 "health": 8
             },
             {
-                "lavel": 4,
+                "level": 4,
                 "xp": 150,
                 "health": 9
             },
@@ -82,7 +82,7 @@
                 "health": 10
             },
             {
-                "lavel": 6,
+                "level": 6,
                 "xp": 275,
                 "health": 11
             },
@@ -97,7 +97,7 @@
                 "health": 13
             },
             {
-                "lavel": 9,
+                "level": 9,
                 "xp": 500,
                 "health": 14
             }
@@ -114,7 +114,7 @@
                 "health": 8
             },
             {
-                "lavel": 2,
+                "level": 2,
                 "xp": 45,
                 "health": 9
             },
@@ -124,7 +124,7 @@
                 "health": 11
             },
             {
-                "lavel": 4,
+                "level": 4,
                 "xp": 150,
                 "health": 12
             },
@@ -134,7 +134,7 @@
                 "health": 14
             },
             {
-                "lavel": 6,
+                "level": 6,
                 "xp": 275,
                 "health": 15
             },
@@ -149,7 +149,7 @@
                 "health": 18
             },
             {
-                "lavel": 9,
+                "level": 9,
                 "xp": 500,
                 "health": 20
             }
@@ -166,7 +166,7 @@
                 "health": 10
             },
             {
-                "lavel": 2,
+                "level": 2,
                 "xp": 45,
                 "health": 12
             },
@@ -176,7 +176,7 @@
                 "health": 14
             },
             {
-                "lavel": 4,
+                "level": 4,
                 "xp": 150,
                 "health": 16
             },
@@ -186,7 +186,7 @@
                 "health": 18
             },
             {
-                "lavel": 6,
+                "level": 6,
                 "xp": 275,
                 "health": 20
             },
@@ -201,7 +201,7 @@
                 "health": 24
             },
             {
-                "lavel": 9,
+                "level": 9,
                 "xp": 500,
                 "health": 26
             }
@@ -218,7 +218,7 @@
                 "health": 6
             },
             {
-                "lavel": 2,
+                "level": 2,
                 "xp": 45,
                 "health": 7
             },
@@ -228,7 +228,7 @@
                 "health": 8
             },
             {
-                "lavel": 4,
+                "level": 4,
                 "xp": 150,
                 "health": 9
             },
@@ -238,7 +238,7 @@
                 "health": 10
             },
             {
-                "lavel": 6,
+                "level": 6,
                 "xp": 275,
                 "health": 11
             },
@@ -253,7 +253,7 @@
                 "health": 13
             },
             {
-                "lavel": 9,
+                "level": 9,
                 "xp": 500,
                 "health": 14
             }
@@ -270,7 +270,7 @@
                 "health": 8
             },
             {
-                "lavel": 2,
+                "level": 2,
                 "xp": 45,
                 "health": 9
             },
@@ -280,7 +280,7 @@
                 "health": 11
             },
             {
-                "lavel": 4,
+                "level": 4,
                 "xp": 150,
                 "health": 12
             },
@@ -290,7 +290,7 @@
                 "health": 14
             },
             {
-                "lavel": 6,
+                "level": 6,
                 "xp": 275,
                 "health": 15
             },
@@ -305,7 +305,7 @@
                 "health": 18
             },
             {
-                "lavel": 9,
+                "level": 9,
                 "xp": 500,
                 "health": 20
             }

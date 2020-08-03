@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
             redirectUri={typeof window !== 'undefined' ? window.location.origin : ''}
             onRedirectCallback={onRedirectCallback}
         >
-            <SocketIOProvider url="http://localhost:5000" opts={{ transportOptions: {} }}>
+            <SocketIOProvider url="http://localhost:5000">
                 <Nav />
                 <Component {...pageProps} />
             </SocketIOProvider>
