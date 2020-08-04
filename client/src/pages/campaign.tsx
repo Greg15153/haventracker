@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { withAuthenticationRequired } from '@auth0/auth0-react'
-import { Button, useColorMode } from '@chakra-ui/core'
+import { Button } from '@chakra-ui/core'
 import Head from 'next/head'
 import { useSocket } from 'use-socketio'
 import { NewCampaign } from '../components/NewCampaign'
@@ -13,7 +13,6 @@ interface Event {
 function Campaign() {
     const [events, setEvents] = useState<Event[]>([])
     const [startingNew, setStartingNew] = useState<boolean>(false)
-    const { colorMode, toggleColorMode } = useColorMode()
     const { socket } = useSocket('events', (event: Event) => setEvents([...events, event]))
 
     const addEvent = () => {
@@ -36,8 +35,6 @@ function Campaign() {
             <Button aria-label="create new campaign" variant="outline" variantColor="green" onClick={createNewCampaign}>
                 {'Create a new campaign'}
             </Button>
-            {colorMode}
-            <Button onClick={toggleColorMode}>{'toggle'}</Button>
             {startingNew ? <NewCampaign /> : null}
             <Button onClick={addEvent}>{'Click to add event'}</Button>
             {events.map((e, i) => {

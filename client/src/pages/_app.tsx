@@ -1,9 +1,9 @@
 import React from 'react'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { AppState } from '@auth0/auth0-react/dist/auth0-provider'
-import { ColorModeProvider, CSSReset, useColorModeValue } from '@chakra-ui/core'
-import { ChakraProvider } from '@chakra-ui/core'
+import { Box, ChakraProvider, ColorModeProvider, CSSReset, useColorMode, useColorModeValue } from '@chakra-ui/core'
 import { Global } from '@emotion/core'
+import { GetServerSideProps } from 'next'
 import { AppProps } from 'next/app'
 import Router from 'next/router'
 import { SocketIOProvider } from 'use-socketio'
@@ -17,19 +17,17 @@ const onRedirectCallback = (appState: AppState) => {
     Router.replace(appState?.returnTo || '/')
 }
 
-export default function App({ Component, pageProps }: AppProps): JSX.Element {
+type HavenApp = AppProps & {
+    cookies?: string
+}
+
+export default function App({ Component, pageProps, cookies }: HavenApp): JSX.Element {
     const background = useColorModeValue('red.500', 'blue.500')
+
     return (
         <ChakraProvider theme={scoundrel}>
-            <CSSReset />
-            <Global
-                styles={{
-                    body: {
-                        background: background
-                    }
-                }}
-            />
-            <ColorModeProvider>
+            <Box bg={background}>
+                <CSSReset />
                 <Auth0Provider
                     domain={configuration.auth0.domain}
                     clientId={configuration.auth0.clientId}
@@ -41,7 +39,15 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
                         <Component {...pageProps} />
                     </SocketIOProvider>
                 </Auth0Provider>
-            </ColorModeProvider>
+            </Box>
         </ChakraProvider>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    return {
+        props: {
+            cookies: context.req.headers.cookie
+        }
+    }
 }

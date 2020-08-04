@@ -1,10 +1,20 @@
 import React, { useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Box } from '@chakra-ui/core'
+import { Box, ColorMode, useColorMode } from '@chakra-ui/core'
 import Link from 'next/link'
+
+type ColorModeProps = {
+    colorMode: ColorMode
+    toggleColorMode: () => void
+}
+
+type NavProps = {
+    colorMode: ColorModeProps
+}
 
 export function Nav(): JSX.Element {
     const { isAuthenticated, isLoading, user, loginWithRedirect, logout, getAccessTokenSilently } = useAuth0()
+    const colorMode = useColorMode()
 
     useEffect(() => {
         async function test() {
@@ -44,6 +54,8 @@ export function Nav(): JSX.Element {
                     </button>
                 )}
             </nav>
+            {colorMode.colorMode}
+            <button onClick={colorMode.toggleColorMode}>{'Toggle'}</button>
         </Box>
     )
 }

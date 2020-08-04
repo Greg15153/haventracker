@@ -1,7 +1,12 @@
-import theme from '@chakra-ui/theme'
+import theme, { Theme } from '@chakra-ui/theme'
 
-export default {
+const scoundrel: Theme = {
     ...theme,
+    config: {
+        initialColorMode: 'dark',
+        useSystemColorMode: false
+    },
+    breakpoints: Object.assign([], theme.breakpoints),
     colors: {
         ...theme.colors,
         green: {
@@ -18,3 +23,7 @@ export default {
         }
     }
 }
+
+console.log(scoundrel)
+
+export default scoundrel
