@@ -1,7 +1,13 @@
 import theme, { Theme } from '@chakra-ui/theme'
+import { mode, Styles } from '@chakra-ui/theme-tools'
 
 const scoundrel: Theme = {
     ...theme,
+    styles: {
+        global: (props) => ({
+            bg: mode('blue.900', 'green.900')(props)
+        })
+    } as Styles,
     config: {
         initialColorMode: 'dark',
         useSystemColorMode: false
@@ -23,7 +29,5 @@ const scoundrel: Theme = {
         }
     }
 }
-
-console.log(scoundrel)
 
 export default scoundrel
