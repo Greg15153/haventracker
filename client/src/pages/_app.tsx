@@ -1,7 +1,9 @@
 import React from 'react'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { AppState } from '@auth0/auth0-react/dist/auth0-provider'
-import { ColorModeProvider, CSSReset, ThemeProvider } from '@chakra-ui/core'
+import { ColorModeProvider, CSSReset, useColorModeValue } from '@chakra-ui/core'
+import { ChakraProvider } from '@chakra-ui/core'
+import { Global } from '@emotion/core'
 import { AppProps } from 'next/app'
 import Router from 'next/router'
 import { SocketIOProvider } from 'use-socketio'
@@ -16,9 +18,17 @@ const onRedirectCallback = (appState: AppState) => {
 }
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
+    const background = useColorModeValue('red.500', 'blue.500')
     return (
-        <ThemeProvider theme={scoundrel}>
+        <ChakraProvider theme={scoundrel}>
             <CSSReset />
+            <Global
+                styles={{
+                    body: {
+                        background: background
+                    }
+                }}
+            />
             <ColorModeProvider>
                 <Auth0Provider
                     domain={configuration.auth0.domain}
@@ -32,6 +42,6 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
                     </SocketIOProvider>
                 </Auth0Provider>
             </ColorModeProvider>
-        </ThemeProvider>
+        </ChakraProvider>
     )
 }
