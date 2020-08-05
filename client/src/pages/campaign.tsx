@@ -32,11 +32,18 @@ function Campaign() {
                 <title>{'Campaigns'}</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Button aria-label="create new campaign" variant="outline" variantColor="green" onClick={createNewCampaign}>
+            <Button
+                size="sm"
+                aria-label="create new campaign"
+                variant="outline"
+                colorScheme="green"
+                onClick={createNewCampaign}>
                 {'Create a new campaign'}
             </Button>
             {startingNew ? <NewCampaign /> : null}
-            <Button onClick={addEvent}>{'Click to add event'}</Button>
+            <Button colorScheme="purple" onClick={addEvent}>
+                {'Click to add event'}
+            </Button>
             {events.map((e, i) => {
                 return <div key={i}>{`${e.name}: ${e.message}`}</div>
             })}
