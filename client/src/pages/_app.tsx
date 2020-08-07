@@ -1,9 +1,9 @@
 import React from 'react'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { AppState } from '@auth0/auth0-react/dist/auth0-provider'
-import { Box, ChakraProvider, CSSReset } from '@chakra-ui/core'
+import { Box, ChakraProvider, cookieStorageManager, CSSReset } from '@chakra-ui/core'
 import { GetServerSideProps } from 'next'
-import { AppProps } from 'next/app'
+import App, { AppContext, AppProps } from 'next/app'
 import Router from 'next/router'
 import { SocketIOProvider } from 'use-socketio'
 import { Nav } from '../components/Nav'
@@ -20,9 +20,9 @@ type HavenApp = AppProps & {
     cookies?: string
 }
 
-export default function App({ Component, pageProps, cookies }: HavenApp): JSX.Element {
+export default function HaventrackerApp({ Component, pageProps, cookies }: HavenApp): JSX.Element {
     return (
-        <ChakraProvider theme={scoundrel}>
+        <ChakraProvider theme={scoundrel} storageManager={cookieStorageManager(cookies)}>
             <CSSReset />
             <Auth0Provider
                 domain={configuration.auth0.domain}
@@ -39,10 +39,8 @@ export default function App({ Component, pageProps, cookies }: HavenApp): JSX.El
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    return {
-        props: {
-            cookies: context.req.headers.cookie
-        }
-    }
+HaventrackerApp.getInitialProps = async (appContext: AppContext) => {
+    const appProps = await App.getInitialProps(appContext)
+    const cookies = appContext.ctx.req?.headers.cookie
+    return { ...appProps, cookies }
 }
